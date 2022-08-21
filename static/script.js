@@ -27,13 +27,16 @@ function updateHeader(text = '') {
 }
 
 window.onload = () => {
+    const homePath = '/';
     goBack.className = 'go-back';
     goBack.innerHTML = '&#129044;'; // Leftwards Arrow
-    goBack.href = '/';
+    goBack.href = homePath;
+    if (window.location.pathname !== homePath) {
+        document.body.appendChild(goBack);
+    }
     goTop.className = 'go-top';
     goTop.innerHTML = '&#129045;'; // Upwards Arrow
     goTop.onclick = scrollToTop;
-    document.body.appendChild(goBack);
     document.body.appendChild(goTop);
     document.body.appendChild(header);
     window.onscroll = updateVisibilities;
