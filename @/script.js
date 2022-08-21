@@ -1,5 +1,5 @@
 async function load(id) {
-    return (await fetch(`${window.location.origin}/@/data/${id}`, {
+    return (await fetch(`${window.location.origin}/@/data/${id}.md`, {
         headers: {
             'Content-Type': 'text/markdown',
         },
