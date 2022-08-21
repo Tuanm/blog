@@ -10,6 +10,7 @@ function process(text = '') {
 
 async function main() {
     const { id } = Object.fromEntries(new URLSearchParams(window.location.search));
+    window.history.pushState({}, null, `${window.location.origin}/${id}`);
     try {
         const {
             title,
@@ -22,7 +23,6 @@ async function main() {
         for (const content of contents || []) {
             container.appendChild(process(content));
         }
-        window.history.pushState({}, null, `${window.location.origin}/${id}`);
         window.document.title = title;
         updateHeader(title);
     } catch (err) {
