@@ -1,6 +1,5 @@
 <script>
     const matches = window.location.pathname.match(/\/(\d+)[\/]*$/);
-    console.log(matches);
     const id = matches ? matches[1] : 0;
-    window.location.href = `/~?id=${id}`;
+    window.location.href = `/@?id=${id}`;
 </script>

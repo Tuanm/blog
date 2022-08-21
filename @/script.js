@@ -1,5 +1,5 @@
 async function load(id) {
-    return (await fetch(`${window.location.origin}/~/@/${id}`)).json();
+    return (await fetch(`${window.location.origin}/@/data/${id}`)).json();
 }
 
 function process(text = '') {
