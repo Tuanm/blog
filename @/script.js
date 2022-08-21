@@ -6,7 +6,7 @@ async function load(id) {
     })).text();
 }
 
-function processMarkdown(text = '') {
+function process(text = '') {
     const result = {};
     const pattern = /^\-{3}\n*(([A-Za-z\-]+:\s?.*\n*)*)\-{3}\n*([\S\s]*)$/;
     const matches = text.match(pattern) || [];
@@ -22,7 +22,7 @@ async function main() {
     const { id } = Object.fromEntries(new URLSearchParams(window.location.search));
     window.history.pushState({}, null, `${window.location.origin}/${id}`);
     try {
-        const { title, author, date, contents } = processMarkdown(await load(id) || '');
+        const { title, author, date, contents } = process(await load(id) || '');
         window.document.title = title;
         document.getElementById('title').innerText = title;
         document.getElementById('author').innerText = author;
