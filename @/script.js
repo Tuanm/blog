@@ -2,10 +2,26 @@ async function load(id) {
     return (await fetch(`${window.location.origin}/@/data/${id}`)).json();
 }
 
-function process(text = '') {
+function processText(text) {
     const p = document.createElement('p');
     p.innerText = text;
     return p;
+}
+
+function processImage(url, title) {
+    const img = document.createElement('img');
+    img.src = url;
+    img.title = title;
+    return img;
+}
+
+function process(content = '') {
+    const contentType = typeof content;
+    if (contentType === 'object') {
+        const { type, title, url } = content;
+        if (type === 'image') return processImage(url, title);
+    }
+    return processText(content);
 }
 
 async function main() {
