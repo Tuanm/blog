@@ -1,5 +1,5 @@
 async function load(id) {
-    return (await fetch(`${window.location.origin}/@/data/${id}.md`, {
+    return (await fetch(`${window.location.origin}/@/data/${id}`, {
         headers: {
             'Content-Type': 'text/plain',
         },
@@ -8,7 +8,7 @@ async function load(id) {
 
 function process(text = '') {
     const result = {};
-    const pattern = /^\-{3}\n*(([A-Za-z\-]+:\s?.*\n*)*)\-{3}\n*([\S\s]*)$/;
+    const pattern = /^<!\-{2}\n*(([A-Za-z\-]+:\s?.*\n*)*)\-{2}>\n*([\S\s]*)$/;
     const matches = text.match(pattern) || [];
     result.contents = new showdown.Converter().makeHtml(matches[3] || '');
     const metaDataPattern = /([A-Za-z\-]+):\s?(.*)/g;
