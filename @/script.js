@@ -4,7 +4,7 @@ async function load(id) {
 
 function processText(text) {
     const p = document.createElement('p');
-    p.innerText = text;
+    p.innerHTML = linkify(text);
     return p;
 }
 

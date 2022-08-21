@@ -44,11 +44,11 @@ main::after {
 
 a {
     text-decoration: none;
-    color: #888;
+    color: #fff;
 }
 
 a:hover {
-    color: #fff;
+    color: rgb(235, 232, 107);
 }
 
 img {
