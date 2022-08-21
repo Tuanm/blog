@@ -19,13 +19,10 @@ body {
     padding: 5%;
 }
 
-header, footer {
+header {
     display: flex;
     position: fixed;
     z-index: 1;
-}
-
-header {
     width: 100%;
     top: 0;
     left: 0;
@@ -33,19 +30,6 @@ header {
     justify-content: center;
     background-color: #000;
     font-weight: bolder;
-}
-
-footer {
-    bottom: 2%;
-    right: 2%;
-    width: 0.1vw;
-    height: 0.1vw;
-    padding: 3.5%;
-    background-color: #fff;
-    color: #000;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
 }
 
 main {
@@ -60,4 +44,24 @@ a {
 
 a:hover {
     color: #fff;
+}
+
+.go-top {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    bottom: 2%;
+    right: 2%;
+    width: 0.1vw;
+    height: 0.1vw;
+    padding: 3.5%;
+    background-color: #fff;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.go-back {
+    position: fixed;
 }

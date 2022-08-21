@@ -1,30 +1,41 @@
 let header = document.createElement('header');
-let footer = document.createElement('footer');
+let goBack = document.createElement('a');
+let goTop = document.createElement('span');
 
 function scrollToTop() {
     window.document.body.scrollTo({ top: 0 });
 }
 
-function updateHeaderAndFooter() {
+function updateVisibilities() {
     if (window.document.body.scrollTop > 0) {
-        header.style.display = footer.style.display = 'inherit';
+        header.style.display = goTop.style.display = 'inherit';
     } else {
-        header.style.display = footer.style.display = 'none';
+        header.style.display = goTop.style.display = 'none';
+    }
+    if (!header.childElementCount) {
+        header.style.display = 'none';
     }
 }
 
 function updateHeader(text = '') {
-    const span = document.createElement('span');
-    span.innerText = text;
     header.childNodes.forEach(header.removeChild);
-    header.appendChild(span);
+    if (text) {
+        const span = document.createElement('span');
+        span.innerText = text;
+        header.appendChild(span);
+    }
 }
 
 window.onload = () => {
-    footer.innerHTML = '&#129045;'; // Upwards Arrow
-    footer.onclick = scrollToTop;
+    goBack.className = 'go-back';
+    goBack.innerHTML = '&#129044;'; // Leftwards Arrow
+    goBack.href = '/';
+    goTop.className = 'go-top';
+    goTop.innerHTML = '&#129045;'; // Upwards Arrow
+    goTop.onclick = scrollToTop;
+    document.body.appendChild(goBack);
+    document.body.appendChild(goTop);
     document.body.appendChild(header);
-    document.body.appendChild(footer);
-    window.onscroll = updateHeaderAndFooter;
-    updateHeaderAndFooter();
+    window.onscroll = updateVisibilities;
+    updateVisibilities();
 };

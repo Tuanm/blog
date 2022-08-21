@@ -1,14 +1,5 @@
-#back {
-    position: fixed;
-}
-
-#error, #title, #date {
+#title, #date {
     text-align: center;
-}
-
-#error {
-    font-weight: bolder;
-    color: #ec4848;
 }
 
 #title {
