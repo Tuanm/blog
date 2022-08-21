@@ -1,0 +1,5 @@
+<script>
+    const matches = window.location.pathname.match(/\/(\d+)\/$/);
+    const id = matches[1] || 0;
+    window.location.href = `/view?id=${id}`;
+</script>

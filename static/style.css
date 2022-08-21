@@ -1,0 +1,62 @@
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    background: black;
+    font-family: "Adobe Garamond Pro", garamond, Times, serif;
+    font-size: 300%;
+    color: white;
+    height: 100%;
+    padding: 5%;
+}
+
+header, footer {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 5% 0% 5% 0%;
+    justify-content: center;
+    background-color: #000;
+    font-weight: bolder;
+}
+
+footer {
+    bottom: 2%;
+    right: 2%;
+    width: 0.1vw;
+    height: 0.1vw;
+    padding: 3%;
+    background-color: #fff;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+main {
+    margin-bottom: 20%;
+}
+
+a {
+    text-decoration: none;
+    color: #888;
+}
+
+a:hover {
+    color: #fff;
+}

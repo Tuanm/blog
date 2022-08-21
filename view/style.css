@@ -1,0 +1,22 @@
+#back {
+    position: fixed;
+}
+
+#error, #title, #date {
+    text-align: center;
+}
+
+#error {
+    font-weight: bolder;
+    color: #ec4848;
+}
+
+#title {
+    font-weight: bolder;
+}
+
+#date {
+    font-size: 80%;
+    margin-top: 3%;
+    color: #222;
+}
