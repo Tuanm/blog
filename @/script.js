@@ -1,7 +1,7 @@
 async function load(id) {
     return (await fetch(`${window.location.origin}/@/data/${id}`, {
         headers: {
-            'Content-Type': 'text/plain',
+            'Content-Type': 'text/markdown',
         },
     })).text();
 }
