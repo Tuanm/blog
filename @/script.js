@@ -1,46 +1,34 @@
 async function load(id) {
-    return (await fetch(`${window.location.origin}/@/data/${id}`)).json();
+    return (await fetch(`${window.location.origin}/@/data/${id}`)).text();
 }
 
-function processText(text) {
-    const p = document.createElement('p');
-    p.innerHTML = linkify(text);
-    return p;
-}
-
-function processImage(url, title) {
-    const img = document.createElement('img');
-    img.src = url;
-    img.title = title;
-    return img;
-}
-
-function process(content = '') {
-    const contentType = typeof content;
-    if (contentType === 'object') {
-        const { type, title, url } = content;
-        if (type === 'image') return processImage(url, title);
+function processMarkdown(text = '') {
+    const result = {};
+    const pattern = /^\-{3}\n*(([A-Za-z\-]+:\s?.*\n*)*)\-{3}\n*([\S\s]*)$/;
+    const matches = text.match(pattern) || [];
+    result.contents = new showdown.Converter().makeHtml(matches[3] || '');
+    const metaDataPattern = /([A-Za-z\-]+):\s?(.*)/g;
+    for (const match of (matches[1] || '').matchAll(metaDataPattern)) {
+        result[match[1]] = match[2];
     }
-    return processText(content);
+    return result;
 }
 
 async function main() {
     const { id } = Object.fromEntries(new URLSearchParams(window.location.search));
     window.history.pushState({}, null, `${window.location.origin}/${id}`);
-    let title = '';
     try {
-        const data = await load(id) || {};
-        title = data.title;
-        document.getElementById('date').innerText = data.date;
-        const container = document.getElementById('container');
-        for (const content of data.contents || []) {
-            container.appendChild(process(content));
-        }
+        const { title, author, date, contents } = processMarkdown(await load(id) || '');
+        window.document.title = title;
+        document.getElementById('title').innerText = title;
+        document.getElementById('author').innerText = author;
+        document.getElementById('date').innerText = date;
+        document.getElementById('contents').innerHTML = contents;
     } catch (err) {
-        title = 'Whoops!';
+        window.document.title = 'Whoops!';
+        document.getElementById('error') = 'Something went wrong.';
     }
-    document.getElementById('title').innerText = window.document.title = title;
-    updateHeader(title);
+    updateHeader(window.document.title);
 }
 
 main().catch(console.log);

@@ -1,3 +1,10 @@
+:root {
+    --background-color: #fff;
+    --color: #000;
+    --anchor-color: #000;
+    --anchor-hover-color: #53a8e0;
+}
+
 .unselectable {
     user-select: none;
     -moz-user-select: none;
@@ -11,10 +18,10 @@ html {
 
 body {
     display: flex;
-    background: black;
+    background: var(--background-color);
     font-family: "Adobe Garamond Pro", garamond, Times, serif;
     font-size: 300%;
-    color: white;
+    color: var(--color);
     height: 100%;
     padding: 5%;
 }
@@ -28,7 +35,7 @@ header {
     left: 0;
     padding: 5% 0% 5% 0%;
     justify-content: center;
-    background-color: #000;
+    background-color: var(--background-color);
     font-weight: bolder;
 }
 
@@ -44,11 +51,11 @@ main::after {
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: var(--anchor-color);
 }
 
 a:hover {
-    color: rgb(235, 232, 107);
+    color: var(--anchor-hover-color);
 }
 
 img {
@@ -69,8 +76,8 @@ img {
     width: 0.1vw;
     height: 0.1vw;
     padding: 3.5%;
-    background-color: #fff;
-    color: #000;
+    background-color: var(--color);
+    color: var(--background-color);
     justify-content: center;
     align-items: center;
     cursor: pointer;

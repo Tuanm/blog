@@ -1,17 +1,28 @@
-#title, #date {
+#error, #title, #author, #date {
     text-align: center;
+}
+
+#error {
+    font-size: 200%;
 }
 
 #title {
     font-weight: bolder;
 }
 
-#date {
-    font-size: 80%;
-    margin-top: 3%;
-    color: #222;
+#author {
+    text-align: right;
+    font-weight: bolder;
 }
 
-#container {
+#date {
+    font-style: italic;
+    text-align: right;
+    margin-top: 10%;
+    font-size: 60%;
+    opacity: 50%;
+}
+
+#contents {
     text-align: justify;
 }
