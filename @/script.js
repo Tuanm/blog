@@ -26,7 +26,7 @@ async function randomize() {
  * @param {any} id the post's id.
  */
 async function load(id) {
-    if (!id || id === 404) return '';
+    if (!id || id === '404') return '';
     const url = sourceUrl().get() || `${window.location.origin}/data`;
     return (await fetch(`${url}/${id}`, {
         headers: {
