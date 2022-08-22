@@ -1,9 +1,18 @@
-#error, #title, #author, #date {
-    text-align: center;
+:root {
+    --error-font-size: 120%;
+    --date-font-size: 60%;
 }
 
 #error {
-    font-size: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+    font-size: var(--error-font-size);
+}
+
+#title, #author, #date {
+    text-align: center;
 }
 
 #title {
@@ -19,7 +28,7 @@
     font-style: italic;
     text-align: right;
     margin-top: 10%;
-    font-size: 60%;
+    font-size: var(--date-font-size);
     opacity: 50%;
 }
 
