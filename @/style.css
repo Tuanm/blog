@@ -1,14 +1,5 @@
 :root {
-    --error-font-size: 120%;
     --date-font-size: 60%;
-}
-
-#error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    font-size: var(--error-font-size);
 }
 
 #title, #author, #date {

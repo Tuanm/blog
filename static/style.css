@@ -1,10 +1,12 @@
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400);
+
 :root {
     --background-color: #fff;
     --color: #000;
     --anchor-color: #000;
     --anchor-hover-color: #53a8e0;
-    --font-family: "Adobe Garamond Pro", garamond, Times, serif;
-    --font-size: 300%;
+    --font-family: "IBM Plex Serif", sans-serif;
+    --font-size: 200%;
     --table-font-size: 100%;
     --table-border: solid 2px #000;
     --table-cell-padding: 0 10px 0 10px;
@@ -30,7 +32,8 @@ body {
     font-size: var(--font-size);
     color: var(--color);
     height: 100%;
-    padding: 3% 5% 30% 5%;
+    margin: 0;
+    padding: 3% 5% 10% 5%;
 }
 
 header {
