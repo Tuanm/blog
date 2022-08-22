@@ -33,8 +33,9 @@ function process(text = '') {
 async function main() {
     const { id } = Object.fromEntries(new URLSearchParams(window.location.search));
     window.history.pushState({}, null, `${window.location.origin}/${id}`);
-    if (!id) throw new Error('Not found!');
-    const { title, author, date, contents } = process(await load(id) || '');
+    const data = process(await load(id));
+    const { title, author, date, contents } = data;
+    if (!contents) throw new Error('Not found!');
     window.document.title = title;
     document.getElementById('title').innerText = title;
     document.getElementById('author').innerText = author;
