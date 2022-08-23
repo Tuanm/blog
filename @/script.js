@@ -27,7 +27,7 @@ async function randomize() {
  */
 async function load(id) {
     if (!id || id === '404') return '';
-    const url = sourceUrl().get() || `${window.location.origin}/data`;
+    const url = sourceUrl().get() || 'https://api.tuanm.dev/blog/data';
     return (await fetch(`${url}/${id}`, {
         headers: {
             'Content-Type': 'text/plain',
